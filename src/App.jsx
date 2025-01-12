@@ -9,6 +9,9 @@ import FormMahasiwa from "./components/Dashboard/Mahasiswa/FormMahasiwa";
 import Acara from "./components/Dashboard/Acara/Acara";
 import FormAcara from "./components/Dashboard/Acara/FormAcara";
 import Dosen from "./components/Dashboard/Dosen/Dosen";
+import Kerjasama from "./components/Dashboard/Kerjasama/Kerjasama";
+import HMJ from "./components/Dashboard/HMJ/HMJ";
+import FormHMJ from "./components/Dashboard/HMJ/FormHMJ";
 
 function App() {
   return (
@@ -81,6 +84,40 @@ function App() {
             element={
               <PrivateRoute>
                 <Dosen />
+              </PrivateRoute>
+            }
+          />
+          {/* Kerjasama */}
+          <Route
+            path="/kerjasama"
+            element={
+              <PrivateRoute>
+                <Kerjasama />
+              </PrivateRoute>
+            }
+          />
+          {/* HMJ */}
+          <Route
+            path="/hmj"
+            element={
+              <PrivateRoute>
+                <HMJ />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/hmj/edit/:id"
+            element={
+              <PrivateRoute>
+                <FormHMJ />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/hmj/add/"
+            element={
+              <PrivateRoute>
+                <FormHMJ />
               </PrivateRoute>
             }
           />
