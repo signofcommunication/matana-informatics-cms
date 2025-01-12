@@ -22,6 +22,8 @@ function Mahasiswa() {
     setMahasiswa(updatedMahasiswa);
   };
 
+  console.log(mahasiswa);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Data Mahasiswa</h1>
@@ -51,10 +53,12 @@ function Mahasiswa() {
             {mahasiswa.map(mhs => (
               <tr key={mhs.NIM} className="hover:bg-gray-50">
                 <td className="p-2 border border-gray-300">
-                  {mhs.nama_lengkap}
+                  {mhs.nama_lengkap_mahasiswa}
                 </td>
                 <td className="p-2 border border-gray-300">{mhs.NIM}</td>
-                <td className="p-2 border border-gray-300">{mhs.angkatan}</td>
+                <td className="p-2 border border-gray-300">
+                  {mhs.tahun_angkatan}
+                </td>
                 <td className="p-2 border border-gray-300">
                   {mhs.tahun_lulus}
                 </td>
