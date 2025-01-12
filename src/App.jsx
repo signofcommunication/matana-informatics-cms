@@ -12,6 +12,8 @@ import Dosen from "./components/Dashboard/Dosen/Dosen";
 import Kerjasama from "./components/Dashboard/Kerjasama/Kerjasama";
 import HMJ from "./components/Dashboard/HMJ/HMJ";
 import FormHMJ from "./components/Dashboard/HMJ/FormHMJ";
+import Tentang from "./components/Dashboard/Tentang/Tentang";
+import Produk from "./components/Dashboard/Produk/Produk";
 
 function App() {
   return (
@@ -118,6 +120,25 @@ function App() {
             element={
               <PrivateRoute>
                 <FormHMJ />
+              </PrivateRoute>
+            }
+          />
+          {/* Tentang */}
+          <Route
+            path="/tentang"
+            element={
+              <PrivateRoute>
+                <Tentang />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Produk */}
+          <Route
+            path="/produk"
+            element={
+              <PrivateRoute>
+                <Produk />
               </PrivateRoute>
             }
           />
