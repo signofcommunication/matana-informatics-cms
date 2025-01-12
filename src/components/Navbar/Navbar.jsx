@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useState } from "react";
 
 const Navbar = () => {
   const log = useAuth();
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
@@ -52,13 +58,12 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
+            <li className="relative">
               <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
+                onClick={toggleDropdown}
                 className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               >
-                Dropdown
+                Master
                 <svg
                   className="w-2.5 h-2.5 ms-2.5"
                   aria-hidden="true"
@@ -76,48 +81,50 @@ const Navbar = () => {
                 </svg>
               </button>
               {/* Dropdown menu */}
-              <div
-                id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-              >
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-400"
-                  aria-labelledby="dropdownLargeButton"
+              {isDropdownOpen && (
+                <div
+                  id="dropdownNavbar"
+                  className="absolute z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
                 >
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Earnings
-                    </a>
-                  </li>
-                </ul>
-                <div className="py-1">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                    aria-labelledby="dropdownLargeButton"
                   >
-                    Sign out
-                  </a>
+                    <li>
+                      <Link
+                        to="/dosen"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Dosen
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/tentang"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Tentang
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/kerjasama"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Kerjasama
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/produk"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Produk
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
-              </div>
+              )}
             </li>
             <li>
               <Link
@@ -129,7 +136,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/acara"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Acara
@@ -137,7 +144,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="#"
+                to="/hmj"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 HMJ

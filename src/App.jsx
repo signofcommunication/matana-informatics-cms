@@ -8,6 +8,7 @@ import Mahasiswa from "./components/Dashboard/Mahasiswa/Mahasiswa";
 import FormMahasiwa from "./components/Dashboard/Mahasiswa/FormMahasiwa";
 import Acara from "./components/Dashboard/Acara/Acara";
 import FormAcara from "./components/Dashboard/Acara/FormAcara";
+import Dosen from "./components/Dashboard/Dosen/Dosen";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          {/* Mahasiswa */}
           <Route
             path="/mahasiswa"
             element={
@@ -48,6 +50,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          {/* Acara */}
           <Route
             path="/acara/edit/:id"
             element={
@@ -69,6 +72,15 @@ function App() {
             element={
               <PrivateRoute>
                 <Acara />
+              </PrivateRoute>
+            }
+          />
+          {/* Dosen */}
+          <Route
+            path="/dosen"
+            element={
+              <PrivateRoute>
+                <Dosen />
               </PrivateRoute>
             }
           />
