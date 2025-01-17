@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Form } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -14,6 +14,7 @@ import HMJ from "./components/Dashboard/HMJ/HMJ";
 import FormHMJ from "./components/Dashboard/HMJ/FormHMJ";
 import Tentang from "./components/Dashboard/Tentang/Tentang";
 import Produk from "./components/Dashboard/Produk/Produk";
+import FormDosen from "./components/Dashboard/Dosen/FormDosen";
 
 function App() {
   return (
@@ -86,6 +87,22 @@ function App() {
             element={
               <PrivateRoute>
                 <Dosen />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dosen/edit/:id"
+            element={
+              <PrivateRoute>
+                <FormDosen />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dosen/add"
+            element={
+              <PrivateRoute>
+                <FormDosen />
               </PrivateRoute>
             }
           />

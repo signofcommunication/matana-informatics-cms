@@ -8,7 +8,7 @@ function Dosen() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAllDosen();
-      setDosen(data);
+      setDosen(data.data);
     };
     fetchData();
   }, []);
